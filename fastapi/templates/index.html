@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="static/css/style.css" />
+    <title>Extract images from bag file</title>
+</head>
+
+<body>
+    <div class="form-box">
+        <h2>Extract topics from bag file</h2>
+        <center><span id="success-message"></span></center><br><br>
+        <center><span id="error-message"></span></center><br><br>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <div class="user-box">
+                <label for="bagfile">ROS Bag File</label><br><br>
+                <input type="file" id="bagfile" name="bagfile" required><br>
+            </div>
+            <div id="output"></div>
+            <div class="user-box" id="topics_dropdown_box">
+                <label for="dropdown">Select a Topic:</label><br><br>
+                <select id="topics_dropdown" name="topics_dropdown">
+                    <option value="/rgb_image">/rgb_image</option>
+                    <option value="/camera/points">/camera/points</option>
+                </select>
+            </div>
+
+            <div class="user-box">
+                <input type="checkbox" id="start_time_checkbox" name="start_time_checkbox" onchange="toggleStartTime()"
+                    checked>
+                <label for="start_time" class="time_label">Start Time:</label>
+                <input type="text" id="start_time" name="start_time"><br>
+            </div>
+            <div class="user-box">
+                <input type="checkbox" id="end_time_checkbox" name="end_time_checkbox" onchange="toggleEndTime()"
+                    checked>
+                <label for="end_time" class="time_label">End Time:</label>
+                <input type="text" id="end_time" name="end_time"><br>
+            </div>
+            <div class="user-box">
+                <label for="output_folder">Output Folder:</label><br><br>
+                <input type="text" id="output_folder" name="output_folder"><br>
+            </div>
+            <div class="spinner"></div>
+            <a href="#">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <button type="submit" id="submit">Submit</button>
+            </a>
+        </form>
+        <a><button onclick="callFastAPI()" id="cancel" class="cancel">Cancel</button></a>
+        </div>
+</body>
+
+</html>
+<script src="/static/javascript/index.js"></script>

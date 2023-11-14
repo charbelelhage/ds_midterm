@@ -1,0 +1,49 @@
+<script>
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        var startTimeInput = document.getElementById("start_time");
+        var endTimeInput = document.getElementById("end_time");
+        var output_folder = document.getElementById("output_folder");
+        var submit_button = document.getElementById("submit");
+        submit_button.disabled = true;
+        if (startTimeInput.value == "") {
+            startTimeInput.style.display = "none";
+            startTimeInput.value = 0;
+            document.getElementById("start_time_checkbox").checked = false;
+        }
+        if (endTimeInput.value == "") {
+            endTimeInput.style.display = "none";
+            endTimeInput.value = 9999999999;
+            document.getElementById("end_time_checkbox").checked = false;
+
+        }
+        if (output_folder.value == "") {
+            output_folder.value = "default/";
+        }
+        spinner.style.display = 'block';
+        fetch('/upload', {
+            method: 'POST',
+            body: new FormData(event.target),
+        }).then(response => {
+            if (response.ok) {
+                console.log(response);
+                successMessage.style.display = 'block';
+                spinner.style.display = 'none';
+                startTimeInput.value = "";
+                endTimeInput.value = "";
+                startTimeInput.style.display = "block";
+                endTimeInput.style.display = "block";
+                output_folder.value = "";
+                start_time_checkbox.checked = true;
+                end_time_checkbox.checked = true;
+                setTimeout(function () {
+                    successMessage.style.display = 'none';
+                }, 5000);
+                submit_button.disabled = false;
+            } else {
+                return response.json(); // assuming the response is in JSON format
+            }
+
+        });
+    });
+</script>

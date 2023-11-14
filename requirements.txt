@@ -1,0 +1,8 @@
+fastapi>=0.68.0
+pytest>=6.0.0
+pytest-html
+jinja2>=3.0.0
+uvicorn
+python-multipart
+pytest-asyncio
+pylint

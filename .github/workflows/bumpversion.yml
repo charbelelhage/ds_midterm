@@ -34,4 +34,5 @@ jobs:
           body_path: "body.md"
           tag_name: "${{ env.REVISION }}"
         env:
-          github_token: "${{ secrets.PERSONAL_ACCESS_TOKEN }}"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+

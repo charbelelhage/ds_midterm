@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - master
-#
+      
 jobs:
   bump-version:
     if: "!startsWith(github.event.head_commit.message, 'bump:')"
@@ -35,3 +35,4 @@ jobs:
           tag_name: "${{ env.REVISION }}"
         env:
           token: "${{ secrets.PERSONAL_ACCESS_TOKEN }}"
+          #test

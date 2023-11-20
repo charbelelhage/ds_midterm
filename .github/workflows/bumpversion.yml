@@ -46,6 +46,6 @@ jobs:
           context: .
           push: true  # Set to 'true' to push the image to DockerHub
           tags: |
-            charbelelhage/ds-midterm:1.1
-            charbelelhage/ds-midterm:latest  # Optionally, tag as 'latest' as well
+            charbelelhage/ds-midterm:${{ env.REVISION }}
+            charbelelhage/ds-midterm:latest
 

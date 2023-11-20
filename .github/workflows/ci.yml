@@ -45,9 +45,3 @@ jobs:
             name: code-coverage
             path: coverage
 
-        # - name: Build and push Docker image
-        #   uses: docker/build-push-action@v2
-        #   with:
-        #     context: .  # Path to the directory containing your Dockerfile (the current directory in this case)
-        #     push: false  # Set to 'false' if you only want to build the image and not push it
-

@@ -36,3 +36,16 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 
+
+       - name: Set DockerHub credentials
+            run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true  # Set to 'true' to push the image to DockerHub
+          tags: |
+            charbelelhage/ds-midterm:${{ env.REVISION }}
+            charbelelhage/ds-midterm:latest  # Optionally, tag as 'latest' as well
+

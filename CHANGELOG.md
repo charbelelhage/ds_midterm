@@ -1,3 +1,12 @@
+## 4.0.0 (2023-11-20)
+
+### Feat
+
+- testing publish image
+- checking push image
+- Publishing image to dockerhub
+- test docker image build
+
 ## 3.2.1 (2023-11-19)
 
 ### Fix

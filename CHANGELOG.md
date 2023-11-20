@@ -1,3 +1,9 @@
+## 5.0.0 (2023-11-20)
+
+### Feat
+
+- checking latest version
+
 ## 4.1.1 (2023-11-20)
 
 ### Fix
